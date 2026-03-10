@@ -23,9 +23,6 @@ jobs:
           --health-timeout 5s
           --health-retries 5
 
-    env:
-      DATABASE_URL: postgres://sentinel:sentinel@localhost:5432/sentinel
-
     steps:
       - uses: actions/checkout@v3
 
@@ -38,7 +35,18 @@ jobs:
         run: |
           pip install django djangorestframework psycopg2-binary feedparser requests
 
+      - name: Run migrations
+        working-directory: backend
+        env:
+          DJANGO_SETTINGS_MODULE: sentinel.settings
+          POSTGRES_HOST: localhost
+        run: |
+          python manage.py migrate
+
       - name: Run tests
         working-directory: backend
+        env:
+          DJANGO_SETTINGS_MODULE: sentinel.settings
+          POSTGRES_HOST: localhost
         run: |
           python manage.py test

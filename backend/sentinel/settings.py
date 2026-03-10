@@ -74,13 +74,15 @@ WSGI_APPLICATION = 'sentinel.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+import os
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'sentinel',
-        'USER': 'sentinel',
-        'PASSWORD': 'sentinel',
-        'HOST': 'db',
+        'NAME': os.environ.get('POSTGRES_DB', 'sentinel'),
+        'USER': os.environ.get('POSTGRES_USER', 'sentinel'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD', 'sentinel'),
+        'HOST': os.environ.get('POSTGRES_HOST', 'db'),
         'PORT': 5432,
     }
 }
