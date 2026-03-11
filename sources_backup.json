@@ -1,0 +1,178 @@
+[
+{
+  "model": "intelligence.source",
+  "pk": 1,
+  "fields": {
+    "name": "El Cronista",
+    "url": "http://cronista.com/files/rss/news.xml",
+    "source_type": "news",
+    "category": "general",
+    "created_at": "2026-03-10T18:51:50.278Z"
+  }
+},
+{
+  "model": "intelligence.source",
+  "pk": 2,
+  "fields": {
+    "name": "La Nacion",
+    "url": "https://www.lanacion.com.ar/arc/outboundfeeds/rss/?outputType=xml",
+    "source_type": "news",
+    "category": "general",
+    "created_at": "2026-03-10T18:51:58.300Z"
+  }
+},
+{
+  "model": "intelligence.source",
+  "pk": 3,
+  "fields": {
+    "name": "La Gaceta",
+    "url": "https://feeds.feedburner.com/LaGaceta-General",
+    "source_type": "news",
+    "category": "general",
+    "created_at": "2026-03-10T18:52:22.661Z"
+  }
+},
+{
+  "model": "intelligence.source",
+  "pk": 4,
+  "fields": {
+    "name": "Cadena 3 Politica y Economia",
+    "url": "http://cadena3.com/rss/PoliticayEconomia.xml",
+    "source_type": "news",
+    "category": "politica",
+    "created_at": "2026-03-11T01:16:00.059Z"
+  }
+},
+{
+  "model": "intelligence.source",
+  "pk": 5,
+  "fields": {
+    "name": "Clarin Politica",
+    "url": "https://www.clarin.com/rss/politica/",
+    "source_type": "news",
+    "category": "politica",
+    "created_at": "2026-03-11T01:16:33.432Z"
+  }
+},
+{
+  "model": "intelligence.source",
+  "pk": 6,
+  "fields": {
+    "name": "Clarin Economia",
+    "url": "https://www.clarin.com/rss/economia/",
+    "source_type": "news",
+    "category": "economia",
+    "created_at": "2026-03-11T01:16:53.196Z"
+  }
+},
+{
+  "model": "intelligence.source",
+  "pk": 7,
+  "fields": {
+    "name": "Clarin Mundo",
+    "url": "https://www.clarin.com/rss/mundo/",
+    "source_type": "news",
+    "category": "mundo",
+    "created_at": "2026-03-11T01:17:24.735Z"
+  }
+},
+{
+  "model": "intelligence.source",
+  "pk": 8,
+  "fields": {
+    "name": "Ambito Economia",
+    "url": "https://www.ambito.com/rss/pages/economia.xml",
+    "source_type": "news",
+    "category": "economia",
+    "created_at": "2026-03-11T01:18:24.152Z"
+  }
+},
+{
+  "model": "intelligence.source",
+  "pk": 9,
+  "fields": {
+    "name": "Ambito Politica",
+    "url": "https://www.ambito.com/rss/pages/politica.xml",
+    "source_type": "news",
+    "category": "politica",
+    "created_at": "2026-03-11T01:18:55.700Z"
+  }
+},
+{
+  "model": "intelligence.source",
+  "pk": 10,
+  "fields": {
+    "name": "Ambito Negocios",
+    "url": "https://www.ambito.com/rss/pages/negocios.xml",
+    "source_type": "news",
+    "category": "financiero",
+    "created_at": "2026-03-11T01:19:18.763Z"
+  }
+},
+{
+  "model": "intelligence.source",
+  "pk": 11,
+  "fields": {
+    "name": "Ambito Fiscales",
+    "url": "https://www.ambito.com/rss/pages/novedades-fiscales.xml",
+    "source_type": "news",
+    "category": "regulatorio",
+    "created_at": "2026-03-11T01:19:40.262Z"
+  }
+},
+{
+  "model": "intelligence.source",
+  "pk": 12,
+  "fields": {
+    "name": "El Perfil Politica",
+    "url": "https://www.perfil.com/feed/politica",
+    "source_type": "news",
+    "category": "politica",
+    "created_at": "2026-03-11T01:20:45.820Z"
+  }
+},
+{
+  "model": "intelligence.source",
+  "pk": 13,
+  "fields": {
+    "name": "El Perfil Economia",
+    "url": "https://www.perfil.com/feed/economia",
+    "source_type": "news",
+    "category": "economia",
+    "created_at": "2026-03-11T01:21:14.166Z"
+  }
+},
+{
+  "model": "intelligence.source",
+  "pk": 14,
+  "fields": {
+    "name": "La Voz del Interior Mundo",
+    "url": "https://archivo.lavoz.com.ar/Rss/Rss.asp?categoria=16",
+    "source_type": "news",
+    "category": "mundo",
+    "created_at": "2026-03-11T01:26:23.756Z"
+  }
+},
+{
+  "model": "intelligence.source",
+  "pk": 15,
+  "fields": {
+    "name": "La Voz del Interior Politica",
+    "url": "https://archivo.lavoz.com.ar/Rss/Rss.asp?categoria=47",
+    "source_type": "news",
+    "category": "politica",
+    "created_at": "2026-03-11T01:27:01.549Z"
+  }
+},
+{
+  "model": "intelligence.source",
+  "pk": 16,
+  "fields": {
+    "name": "La Voz del Interior Economia",
+    "url": "https://archivo.lavoz.com.ar/Rss/Rss.asp?categoria=34",
+    "source_type": "news",
+    "category": "economia",
+    "created_at": "2026-03-11T01:27:43.246Z"
+  }
+}
+]
