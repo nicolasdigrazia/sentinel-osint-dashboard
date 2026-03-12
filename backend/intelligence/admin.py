@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import Source, RawData, IntelligenceReport
 
 class RawDataAdmin(admin.ModelAdmin):
-    list_display = ["title", "get_category", "published_at", "collected_at"]
+    list_display = ["title", "get_category", "published_at", "collected_at", "source"]
     list_filter = ["source__category"]
     
     def get_category(self, obj):
