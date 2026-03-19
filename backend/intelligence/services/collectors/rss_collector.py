@@ -1,5 +1,5 @@
 from intelligence.models import Source, RawData
-from scrapers.rss_scraper import scrape_rss
+from intelligence.scrapers.rss_scraper import scrape_rss
 import datetime
 
 
@@ -28,6 +28,7 @@ def collect_rss_news():
                 defaults={
                     "source": source,
                     "title": article["title"],
+                    "category":source.category,
                     "content": article["content"],
                     "published_at": published_at,
                 }

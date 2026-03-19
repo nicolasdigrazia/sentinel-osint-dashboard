@@ -55,7 +55,7 @@ docker-compose run web python manage.py loaddata sources_backup.json
 
 # 5. Recolectar noticias
 docker-compose run web python manage.py shell
->>> from tasks.collect_news import run
+>>> from intelligence.tasks.collect_news import run
 >>> run()
 ```
 

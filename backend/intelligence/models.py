@@ -38,6 +38,7 @@ class RawData(models.Model):
     title = models.CharField(max_length=500)
     content = models.TextField()
     url = models.URLField(unique=True)
+    category = models.CharField(max_length=50, default="general")
     published_at = models.DateTimeField(null=True, blank=True)
     collected_at = models.DateTimeField(auto_now_add=True)
 

@@ -1,4 +1,4 @@
-from services.collectors.rss_collector import collect_rss_news
+from intelligence.services.collectors.rss_collector import collect_rss_news
 
 
 def run():
