@@ -41,6 +41,7 @@ class RawData(models.Model):
     category = models.CharField(max_length=50, default="general")
     published_at = models.DateTimeField(null=True, blank=True)
     collected_at = models.DateTimeField(auto_now_add=True)
+    processed = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title
@@ -66,3 +67,70 @@ class IntelligenceReport(models.Model):
 
     def __str__(self):
         return f"Report {self.id} - {self.category}"
+
+
+        
+        
+        
+class Entity(models.Model):
+
+    ENTITY_TYPES = [
+        ("PER", "Persona"),
+        ("ORG", "Organización"),
+        ("LOC", "Lugar"),
+        ("MISC", "Miscelánea"),
+        ("DATE", "Fecha"),
+        ("MONEY", "Dinero/Cantidad"),
+    ]
+
+    name = models.CharField(max_length=200)                              
+    normalized_name = models.CharField(max_length=200, blank=True, db_index=True)  # con índice para búsquedas rápidas
+    label = models.CharField(max_length=10, choices=ENTITY_TYPES)
+    aliases = models.JSONField(default=list, blank=True)
+    description = models.TextField(blank=True)
+    sector = models.CharField(max_length=100, blank=True)
+    country = models.CharField(max_length=100, blank=True)
+    metadata = models.JSONField(default=dict, blank=True)
+    news_appearance_count = models.IntegerField(default=0)
+    last_seen = models.DateTimeField(null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name_plural = "entities"
+        ordering = ["-news_appearance_count", "-last_seen"]
+        unique_together = ("normalized_name", "label")  # evita duplicados como "YPF" (ORG) y "YPF" (PER) siendo lo mismo
+
+    def __str__(self):
+        return f"{self.name} ({self.label})"
+
+
+class EntityMention(models.Model):
+
+    SENTIMENT_CHOICES = [
+        ("positive", "Positivo"),
+        ("negative", "Negativo"),
+        ("neutral", "Neutral"),
+    ]
+
+    POSITION_CHOICES = [
+        ("title", "Título"),
+        ("body", "Cuerpo"),
+        ("both", "Ambos"),
+    ]
+
+    entity = models.ForeignKey(Entity, on_delete=models.CASCADE, related_name="mentions")
+    raw_data = models.ForeignKey(RawData, on_delete=models.CASCADE, related_name="entity_mentions")
+    count = models.IntegerField(default=1)
+    context = models.TextField(blank=True)
+    position = models.CharField(max_length=20, choices=POSITION_CHOICES, default="body")
+    sentiment = models.CharField(max_length=10, choices=SENTIMENT_CHOICES, null=True, blank=True)
+    relevance_score = models.FloatField(null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ("entity", "raw_data")
+        ordering = ["-created_at"]
+
+    def __str__(self):
+        return f"{self.entity.name} en '{self.raw_data.title[:50]}'"

@@ -10,5 +10,7 @@ COPY . /app
 RUN pip install --upgrade pip
 RUN pip install django djangorestframework psycopg2-binary
 RUN pip install requests beautifulsoup4 feedparser
+RUN pip install spacy
+RUN python -m spacy download es_core_news_lg
 
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
